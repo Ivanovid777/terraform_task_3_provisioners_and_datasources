@@ -54,7 +54,9 @@ resource "azurerm_virtual_machine" "main" {
     inline = [
       "sudo apt-get update",
       "sudo apt-get install -y nginx",
-      "cat /home/testadmin/nginx_default_page.html"
+      "cat /home/testadmin/nginx_default_page.html",
+      "sudo mv /home/testadmin/nginx_default_page.html /var/www/html/index.html",
+      "sudo systemctl restart nginx"
     ]
   }
 }
